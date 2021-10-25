@@ -134,7 +134,7 @@
 
 ### Group Conv
 
-- 回忆MobileNet中的DW卷积，Group Conv 与 标准 Conv的比较图如下：
+- 回忆[MobileNet](https://github.com/PercivalYang/Study-Record/tree/main/Week_1#depthwise-separable-convolution)中的DW卷积，Group Conv 与 标准 Conv的比较图如下：
 
 <div align=center><img src="images\image-20211023210908863.png" alt="image-20211023210908863" style="zoom: 33%;" /></div>
 
