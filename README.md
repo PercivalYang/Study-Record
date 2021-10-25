@@ -24,5 +24,3 @@
 - ShuffleNet-V1：
   - Channel Shuffle
   - Group Conv
-- 
-
