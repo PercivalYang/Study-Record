@@ -1,3 +1,5 @@
+[TOC]
+
 # 基础网络架构
 
 ## AlexNet
@@ -57,7 +59,7 @@
   - 引入**Depthwise separable convolution **来构造轻量级深度神经网络
   - 引入两个Hyper-parameter：**width multiplier** & **resolution multiplier** 来定义小且效率的MobileNet
 
-### <a name="Dwise separable conv">Depthwise separable convolution</a>
+### Depthwise separable convolution
 
 - 这其实是两种卷积结构的结合：**DW(Depthwise) Conv + PW(Pointwise) Conv**，他们的结构如下图所示
 
