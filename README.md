@@ -1,4 +1,3 @@
-# Study Record
 # [Week 1](Week_1/README.md)
 
 - MobileNet V1~V3 
