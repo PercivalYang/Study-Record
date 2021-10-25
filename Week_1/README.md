@@ -15,7 +15,7 @@
   - 小型的Conv cell相比直接使用大型Conv cell，更加节省参数数量（类似之后的bottleneck，先用1\*1的Conv cell降维-->再用3\*3的Conv cell提取feature-->最后用1\*1的进行升维还原H,W）
 - 系统框架图：
 
-<div align=center><img src="images/image-20211016210341847.png" alt="image-20211016210341847" style="zoom:50%;" />
+<div align=center><img src="images/image-20211016210341847.png" alt="image-20211016210341847" style="zoom:50%;" /></div>
 
 
 - 在高层的网络中不再只采用一个非线性激活函数，而是采用3个（如上图中VGG16~19中加粗conv层后都紧随一个非线性激活函数），这样做的效果可以使决策函数具有更强的区分能力；
@@ -26,13 +26,13 @@
 
 - **Residual block**：为了让高层的Conv Layer保存浅层的特性，不会出现较大的偏差，在原先前向传播的网络架构上加入了"**shortcut**"（如下图所示），这样高层的网络同样可以使用SGD的BP算法进行优化，而不会产生退化。
 
-  <div align=center><img src="images\image-20211016215112481.png" alt="image-20211016215112481" style="zoom:50%;" />
+  <div align=center><img src="images\image-20211016215112481.png" alt="image-20211016215112481" style="zoom:50%;" /></div>
 
-  <div align=center><img src="images\image-20211017075601879.png" alt="image-20211017075601879" style="zoom: 50%;" />
+  <div align=center><img src="images\image-20211017075601879.png" alt="image-20211017075601879" style="zoom: 50%;" /></div>
 
 - shortcut的引入没有增加额外的参数和计算复杂度，同时在引入shortcut的block中的卷积层数量是不固定的，如下图所示
 
-  <div align=center><img src="images\image-20211017082047753.png" alt="image-20211017082047753" style="zoom: 50%;" />
+  <div align=center><img src="images\image-20211017082047753.png" alt="image-20211017082047753" style="zoom: 50%;" /></div>
 
 
   - 上图右边bottleneck结构的目的是为了减少计算的参数，若直接使用3$\times$3,256的conv cell提取特征矩阵，则其参数数量为
@@ -47,7 +47,7 @@
 
 - 在观察ResNet 34层的整体网络架构时，可以发现shortcut有实线和虚线两种类别，其中实线和上图中一样只是identity map的作用；而虚线（如下图）的作用，此处我的理解认为其应该是起到downsample的作用
 
-  <div align=center><img src="images\image-20211017083827285.png" alt="image-20211017083827285" style="zoom: 50%;" />
+  <div align=center><img src="images\image-20211017083827285.png" alt="image-20211017083827285" style="zoom: 50%;" /></div>
 
 # MobileNet
 
@@ -61,7 +61,7 @@
 
 - 这其实是两种卷积结构的结合：**DW(Depthwise) Conv + PW(Pointwise) Conv**，他们的结构如下图所示
 
-<div align=center><img src="images\image-20211017085145804.png" alt="image-20211017085145804" style="zoom: 50%;" />
+<div align=center><img src="images\image-20211017085145804.png" alt="image-20211017085145804" style="zoom: 50%;" /></div>
 
 
 ### Width multiplier & Resolution multiplier
@@ -80,18 +80,18 @@
   $$
   ​	其中$D_K$为DW卷积核的边长，N为PW卷积核的个数(如下图所示)
 
-  <div align=center><img src="images\image-20211017090654037.png" alt="image-20211017090654037" style="zoom: 50%;" />
+  <div align=center><img src="images\image-20211017090654037.png" alt="image-20211017090654037" style="zoom: 50%;" /></div>
 
 ### Architecture
 
-<div align=center><img src="images\image-20211017090810322.png" alt="image-20211017090810322" style="zoom: 50%;" />
+<div align=center><img src="images\image-20211017090810322.png" alt="image-20211017090810322" style="zoom: 50%;" /></div>
 
 
 - 从表中可发现，在第一层使用了一层standard conv对输入图像的特征进行提取，后面的卷积层都是DW+PW的卷积
 
 - 每层卷积层后，都会紧随BatchNormal+ReLU的Layer(如下图所示)
 
-  <div align=center><img src="images\image-20211017091100632.png" alt="image-20211017091100632" style="zoom: 50%;" />
+  <div align=center><img src="images\image-20211017091100632.png" alt="image-20211017091100632" style="zoom: 50%;" /></div>
 
 ## MobileNet-V2
 
@@ -110,7 +110,7 @@
 
 - 借鉴了ResNet的残差结构，如下图所示：
 
-<div align=center><img src="images\image-20211017101213906.png" alt="image-20211017101213906" style="zoom:50%;" />
+<div align=center><img src="images\image-20211017101213906.png" alt="image-20211017101213906" style="zoom:50%;" /></div>
 
 
 - 须注意的是：
@@ -122,7 +122,7 @@
 
   - 中间提取特征层采用的Dwise Conv，如下图：
 
-  <div align=center><img src="images\image-20211017101910095.png" alt="image-20211017101910095" style="zoom: 50%;" />
+  <div align=center><img src="images\image-20211017101910095.png" alt="image-20211017101910095" style="zoom: 50%;" /></div>
 
   
   - 由上图也可注意当stride=1时，会引入shortcut；当stride$\ne$1时，则没有shortcut
@@ -131,7 +131,7 @@
 
 - 系统整体框架图（图中bottleneck 即inverted residual block）：
 
-<div align=center><img src="images\image-20211017102040385.png" alt="image-20211017102040385" style="zoom:50%;" />
+<div align=center><img src="images\image-20211017102040385.png" alt="image-20211017102040385" style="zoom:50%;" /></div>
 
 - 上图各参数：
 
@@ -159,12 +159,12 @@
 
 - 更新后的模块图如下：
 
-<div align=center><img src="images\image-20211017103744818.png" alt="image-20211017103744818" style="zoom: 50%;" />
+<div align=center><img src="images\image-20211017103744818.png" alt="image-20211017103744818" style="zoom: 50%;" /></div>
 
 
 - 其中SE模块放大图如下：
 
-  <div align=center><img src="images\image-20211017103904500.png" alt="image-20211017103904500" style="zoom: 50%;" />
+  <div align=center><img src="images\image-20211017103904500.png" alt="image-20211017103904500" style="zoom: 50%;" /></div>
 
   
   - SE模块的想法：对提取出来的feature block的每一层channel进行计算，赋予每一层channel一个权重，然后再返回其中
@@ -194,7 +194,7 @@
 
 #### MobileNet-V3-Large
 
-<div align=center><img src="images\image-20211017105532996.png" alt="image-20211017105532996" style="zoom: 50%;" />
+<div align=center><img src="images\image-20211017105532996.png" alt="image-20211017105532996" style="zoom: 50%;" /></div>
 
 
 - 表中须注意的有：
@@ -208,7 +208,7 @@
 
 #### MobileNet-V3-Small
 
-<div align=center><img src="images\image-20211017110527176.png" alt="image-20211017110527176" style="zoom: 50%;" />
+<div align=center><img src="images\image-20211017110527176.png" alt="image-20211017110527176" style="zoom: 50%;" /></div>
 
 
 # Code Study
